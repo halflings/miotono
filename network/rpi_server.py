@@ -29,32 +29,28 @@ def op_test(a, b):
 
 
 @dispatcher.add_method
-def move_forward(distance_mm):
-    logger.debug("move_forward: {}mm".format(distance_mm))
+def move(distance_mm):
+    logger.debug("move: {}mm".format(distance_mm))
 
 
 @dispatcher.add_method
-def move_backwards(distance_mm):
-    logger.debug("move_backwards: {}mm".format(distance_mm))
+def turn(angle_radians):
+    logger.debug("turn: {}rad".format(angle_radians))
 
 
 @dispatcher.add_method
-def open_gripper(timeout_ms=None):
-    logger.debug("open_gripper: {}ms".format(timeout_ms))
-    if timeout_ms is not None:
-        threading.Timer(timeout_ms / 1000.0, stop_gripper).start()
+def open_gripper(width_mm):
+    logger.debug("open_gripper: {}mm".format(width_mm))
 
 
 @dispatcher.add_method
-def close_gripper(timeout_ms=None):
-    logger.debug("close_gripper: {}ms".format(timeout_ms))
-    if timeout_ms is not None:
-        threading.Timer(timeout_ms / 1000.0, stop_gripper).start()
+def close_gripper(width_mm):
+    logger.debug("close_gripper: {}mm".format(width_mm))
 
 
 @dispatcher.add_method
-def stop_gripper():
-    logger.debug("stop_gripper")
+def play_notes():
+    logger.debug("play_notes")
 
 # Sensors:
 
